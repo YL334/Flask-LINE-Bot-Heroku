@@ -54,12 +54,11 @@ RandomK6 =[
 Random_img =[
   'https://cdn.clickme.net/gallery/fb0ff9d6499cb30ea015c72cee75fe50.jpg',
   'https://cdn.clickme.net/gallery/c74b770910e58636dacdaa74e52e0626.jpg',
-  'http://5b0988e595225.cdn.sohucs.com/images/20200324/99af72909ec54cde89cb63465be3f40d.jpeg',
+  #'http://5b0988e595225.cdn.sohucs.com/images/20200324/99af72909ec54cde89cb63465be3f40d.jpeg',
   'http://i0.hdslb.com/bfs/archive/f0af9ae0eae29c1f57fa641612ba9f8d00dda431.jpg',
   'https://i1.wp.com/i1.hdslb.com/bfs/archive/5ce343f3646f062b958638544e365f40ae71ca1f.jpg',
-  'https://www.taisounds.com/ucms/uPages/img.aspx?FileLocation=%2FPJ-TAISOUNDS%2FFiles%2F&FileName=photo-12622-t.JPG',
+  #'https://www.taisounds.com/ucms/uPages/img.aspx?FileLocation=%2FPJ-TAISOUNDS%2FFiles%2F&FileName=photo-12622-t.JPG',
   'https://cdn.discordapp.com/attachments/955826448311128084/957247698464043068/2022-03-26_7.31.49.png',
-  #幹話王
   'https://i.imgur.com/1kXU4if.jpg'
   #貓貓圖
 ]
@@ -86,7 +85,7 @@ def process_textstring(msg):
     return ['img',img_Link]
   elif get_reply_msg == 'RandomK6':
     keyresult = random.choice(RandomK6)
-    return ['text',Reply_Message.get(keyresult)]
+    return ['text',keyresult]
   elif get_reply_msg == 'False':    
     #什麼都找不到
     return ['False',get_reply_msg]
