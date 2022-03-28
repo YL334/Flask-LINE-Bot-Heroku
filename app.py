@@ -1,6 +1,6 @@
 import os
 from datetime import datetime
-
+import random
 from flask import Flask, abort, request
 
 # https://github.com/line/line-bot-sdk-python
@@ -18,10 +18,11 @@ SearchKey4 = 'QQ'
 SearchKey5 = 'D哥'
 SearchKey6 = '吃啥'
 SearchKey7 = '乾'
+SearchKey8 = '股價'
 
 # 記得要一起改
 String_Search_Key=[
-  SearchKey1,SearchKey2,SearchKey3,SearchKey4,SearchKey5,SearchKey6,SearchKey7
+  SearchKey1,SearchKey2,SearchKey3,SearchKey4,SearchKey5,SearchKey6,SearchKey7,SearchKey8
 ]
 
 Reply_Message = {
@@ -29,13 +30,33 @@ Reply_Message = {
   SearchKey2:'幫你擦眼淚',
   SearchKey3:'幫你CC',
   SearchKey4:'別哭了,需要衛生紙嗎',
-  SearchKey5:'D哥是藍天大師',
-  SearchKey6:'你說呢',
-  SearchKey7:'金派耶~'
+  SearchKey5:'D哥是藍天大師!',
+  SearchKey6:'RandomK6',
+  SearchKey7:'金派耶~',
+  SearchKey8:'跟著王董買穩賺不賠~'
 }
-                
+
+RandomK6 =[
+  '我不知道~',
+  '小芬你說呢?',
+  '四爺要吃嗎?',
+  '王董吃鍋嗎?',
+  '猜拳決定啦',
+  '那你想吃什麼',
+  '吃土惹～～',
+  '吃雞！',
+  '三寶~'
+  '吃鍋',
+  '吃紅'
+]
+
 # 隨機圖片用
 Random_img =[
+  'https://cdn.clickme.net/gallery/fb0ff9d6499cb30ea015c72cee75fe50.jpg',
+  'https://cdn.clickme.net/gallery/c74b770910e58636dacdaa74e52e0626.jpg',
+  'http://5b0988e595225.cdn.sohucs.com/images/20200324/99af72909ec54cde89cb63465be3f40d.jpeg',
+  'http://i0.hdslb.com/bfs/archive/f0af9ae0eae29c1f57fa641612ba9f8d00dda431.jpg',
+  'https://i1.wp.com/i1.hdslb.com/bfs/archive/5ce343f3646f062b958638544e365f40ae71ca1f.jpg',
   'https://www.taisounds.com/ucms/uPages/img.aspx?FileLocation=%2FPJ-TAISOUNDS%2FFiles%2F&FileName=photo-12622-t.JPG',
   'https://cdn.discordapp.com/attachments/955826448311128084/957247698464043068/2022-03-26_7.31.49.png',
   #幹話王
@@ -63,6 +84,9 @@ def process_textstring(msg):
     #隨機圖片
     img_Link= random.choice(Random_img)
     return ['img',img_Link]
+  elif get_reply_msg == 'RandomK6':
+    keyresult = random.choice(RandomK6)
+    return ['text',Reply_Message.get(keyresult)]
   elif get_reply_msg == 'False':    
     #什麼都找不到
     return ['False',get_reply_msg]
