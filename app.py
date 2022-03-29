@@ -19,10 +19,12 @@ SearchKey5 = 'D哥'
 SearchKey6 = '吃啥'
 SearchKey7 = '乾'
 SearchKey8 = '股價'
+SearchKey9 = '抽籤'
+SearchKey10 = '運'
 
 # 記得要一起改
 String_Search_Key=[
-  SearchKey1,SearchKey2,SearchKey3,SearchKey4,SearchKey5,SearchKey6,SearchKey7,SearchKey8
+  SearchKey1,SearchKey2,SearchKey3,SearchKey4,SearchKey5,SearchKey6,SearchKey7,SearchKey8,SearchKey9,SearchKey10
 ]
 
 Reply_Message = {
@@ -33,7 +35,9 @@ Reply_Message = {
   SearchKey5:'D哥是藍天大師!',
   SearchKey6:'RandomK6',
   SearchKey7:'金派耶~',
-  SearchKey8:'跟著王董買穩賺不賠~'
+  SearchKey8:'跟著王董買穩賺不賠~',
+  SearchKey9:'求籤'
+  SearchKey10:'求籤'
 }
 
 RandomK6 =[
@@ -67,9 +71,17 @@ Random_img =[
   'https://i1.wp.com/i1.hdslb.com/bfs/archive/5ce343f3646f062b958638544e365f40ae71ca1f.jpg',
   #'https://www.taisounds.com/ucms/uPages/img.aspx?FileLocation=%2FPJ-TAISOUNDS%2FFiles%2F&FileName=photo-12622-t.JPG',
   'https://cdn.discordapp.com/attachments/955826448311128084/957247698464043068/2022-03-26_7.31.49.png',
-  'https://i.imgur.com/1kXU4if.jpg'
+  'https://i.imgur.com/1kXU4if.jpg',
   #貓貓圖
+  #奇怪的知識
+  'https://memeprod.sgp1.digitaloceanspaces.com/user-wtf/1604995167673.jpg',
+  'http://i2.kknews.cc/WE7x0Nb6XChVFx8fxkUpuo8IKGiMwt0/0.jpg' # 如花 
 ]
+
+#抽籤用
+fortune = ['大吉', '吉', '小吉', '小凶', '凶', '大凶']
+prob = [4, 6, 5, 3, 3, 2]
+
 
 # 處理message用
 def process_textstring(msg):
@@ -93,6 +105,9 @@ def process_textstring(msg):
     return ['img',img_Link]
   elif get_reply_msg == 'RandomK6':
     keyresult = random.choice(RandomK6)
+    return ['text',keyresult]
+  elif get_reply_msg == '求籤':
+    keyresult = random.choices(fortune, weights=prob)[0]
     return ['text',keyresult]
   elif get_reply_msg == 'False':    
     #什麼都找不到
