@@ -36,7 +36,7 @@ Reply_Message = {
   SearchKey6:'RandomK6',
   SearchKey7:'金派耶~',
   SearchKey8:'跟著王董買穩賺不賠~',
-  SearchKey9:'求籤'
+  SearchKey9:'求籤',
   SearchKey10:'求籤'
 }
 
