@@ -108,7 +108,7 @@ def process_textstring(msg):
     return ['text',keyresult]
   elif get_reply_msg == '求籤':
     keyresult = random.choices(fortune, weights=prob)[0]
-    return ['text',f'您的運勢為........>>>{keyresult}<<<']
+    return ['text',f'您的運勢為........==> {keyresult} <==']
   elif get_reply_msg == 'False':    
     #什麼都找不到
     return ['False',get_reply_msg]
