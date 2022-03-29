@@ -79,8 +79,8 @@ Random_img =[
 ]
 
 #抽籤用
-fortune = ['大吉', '吉', '小吉', '小凶', '凶', '大凶']
-prob = [4, 6, 5, 3, 3, 2]
+fortune = ['大吉', '吉', '末吉', '小凶', '凶', '大凶']
+prob = [3, 6, 5, 3, 2, 1]
 
 
 # 處理message用
@@ -108,7 +108,7 @@ def process_textstring(msg):
     return ['text',keyresult]
   elif get_reply_msg == '求籤':
     keyresult = random.choices(fortune, weights=prob)[0]
-    return ['text',keyresult]
+    return ['text',f'您的運勢為........>>>{keyresult}<<<']
   elif get_reply_msg == 'False':    
     #什麼都找不到
     return ['False',get_reply_msg]
