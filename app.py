@@ -13,7 +13,7 @@ app = Flask(__name__)
 # 越前面優先權越高
 SearchKey1 = '抽抽'
 SearchKey2 = 'qq'
-SearchKey3 = 'CC'
+SearchKey3 = 'GG'
 SearchKey4 = 'QQ'
 SearchKey5 = 'D哥'
 SearchKey6 = '吃啥'
@@ -28,7 +28,7 @@ String_Search_Key=[
 Reply_Message = {
   SearchKey1:'randomIMG',
   SearchKey2:'幫你擦眼淚',
-  SearchKey3:'幫你CC',
+  SearchKey3:'GG惹~~~',
   SearchKey4:'別哭了,需要衛生紙嗎',
   SearchKey5:'D哥是藍天大師!',
   SearchKey6:'RandomK6',
@@ -47,7 +47,15 @@ RandomK6 =[
   '吃雞！',
   '三寶~'
   '吃鍋',
-  '吃紅'
+  '吃紅',
+  '我要吃涮乃葉',
+  '我要吃肉多多',
+  '看你們吃我就很開心惹~',
+  '>>吃香蕉<<',
+  '喝奶就飽惹~~',
+  '吃水餃',
+  '吃樹下',
+  '吃泰式料理'
 ]
 
 # 隨機圖片用
@@ -55,7 +63,7 @@ Random_img =[
   'https://cdn.clickme.net/gallery/fb0ff9d6499cb30ea015c72cee75fe50.jpg',
   'https://cdn.clickme.net/gallery/c74b770910e58636dacdaa74e52e0626.jpg',
   #'http://5b0988e595225.cdn.sohucs.com/images/20200324/99af72909ec54cde89cb63465be3f40d.jpeg',
-  'http://i0.hdslb.com/bfs/archive/f0af9ae0eae29c1f57fa641612ba9f8d00dda431.jpg',
+  #'http://i0.hdslb.com/bfs/archive/f0af9ae0eae29c1f57fa641612ba9f8d00dda431.jpg',
   'https://i1.wp.com/i1.hdslb.com/bfs/archive/5ce343f3646f062b958638544e365f40ae71ca1f.jpg',
   #'https://www.taisounds.com/ucms/uPages/img.aspx?FileLocation=%2FPJ-TAISOUNDS%2FFiles%2F&FileName=photo-12622-t.JPG',
   'https://cdn.discordapp.com/attachments/955826448311128084/957247698464043068/2022-03-26_7.31.49.png',
