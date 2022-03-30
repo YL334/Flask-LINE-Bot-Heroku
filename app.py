@@ -33,7 +33,7 @@ Reply_Message = {
   SearchKey2:'幫你擦眼淚',
   SearchKey3:'GG惹~~~',
   SearchKey4:'別哭了,需要衛生紙嗎',
-  SearchKey5:'D哥是藍天大師!',
+  SearchKey5:'D哥是五股張震!!',
   SearchKey6:'RandomK6',
   SearchKey7:'金派耶~',
   SearchKey8:'跟著王董買穩賺不賠~',
@@ -112,7 +112,7 @@ def process_textstring(msg):
     return ['text',keyresult]
   elif get_reply_msg == '求籤':
     keyresult = random.choices(fortune, weights=prob)[0]
-    return ['text',f'您的運勢為........==> {keyresult} <==']
+    return ['text',f'根據計算得到的結果為\n\n\n\n==> {keyresult} <==']
   elif get_reply_msg == 'False':    
     #什麼都找不到
     return ['False',get_reply_msg]
