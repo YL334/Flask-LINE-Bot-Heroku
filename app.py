@@ -21,10 +21,11 @@ SearchKey7 = '乾'
 SearchKey8 = '股價'
 SearchKey9 = '抽籤'
 SearchKey10 = '運'
+SearchKey11 = '吃什麼'
 
 # 記得要一起改
 String_Search_Key=[
-  SearchKey1,SearchKey2,SearchKey3,SearchKey4,SearchKey5,SearchKey6,SearchKey7,SearchKey8,SearchKey9,SearchKey10
+  SearchKey1,SearchKey2,SearchKey3,SearchKey4,SearchKey5,SearchKey6,SearchKey7,SearchKey8,SearchKey9,SearchKey10,SearchKey11
 ]
 
 Reply_Message = {
@@ -37,7 +38,8 @@ Reply_Message = {
   SearchKey7:'金派耶~',
   SearchKey8:'跟著王董買穩賺不賠~',
   SearchKey9:'求籤',
-  SearchKey10:'求籤'
+  SearchKey10:'求籤',
+  SearchKey11:'RandomK6'#吃啥專用key
 }
 
 RandomK6 =[
@@ -59,6 +61,8 @@ RandomK6 =[
   '喝奶就飽惹~~',
   '吃水餃',
   '吃樹下',
+  '吃火車便當',
+  '吃便當',
   '吃泰式料理'
 ]
 
