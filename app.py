@@ -88,7 +88,7 @@ prob = [6, 10, 8, 5, 2, 1]
 
 
 # 處理message用
-def process_textstring(msg,profilename):
+def process_textstring(msg,):
   keyresult = 'False'
   #預設找不到keyword, 若有則會把keyword記錄下來
   #在收到的msg中尋找是否有符合keyword
@@ -112,7 +112,8 @@ def process_textstring(msg,profilename):
     return ['text',keyresult]
   elif get_reply_msg == '求籤':
     keyresult = random.choices(fortune, weights=prob)[0]
-    return ['text',f'Hi~{profilename}\n占卜的結果為\n\n\n===>> {keyresult} <<===']
+    #return ['text',f'Hi~{profilename}\n占卜的結果為\n\n\n===>> {keyresult} <<===']
+    return ['text',f'|||--占卜的結果為--|||\n\n\n===>> {keyresult} <<===']
   elif get_reply_msg == 'False':    
     #什麼都找不到
     return ['False',get_reply_msg]
@@ -146,9 +147,10 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-        UserId = event.source.user_id
-        profile = line_bot_api.get_profile(UserId)
-        checkMsg = process_textstring(event.message.text, profile.display_name)
+        #UserId = event.source.user_id
+        #profile = line_bot_api.get_profile(UserId)
+        #checkMsg = process_textstring(event.message.text, profile.display_name)
+        checkMsg = process_textstring(event.message.text)
         if checkMsg[0] == 'text' :
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=checkMsg[1]))
         elif checkMsg[0] == 'img' :
