@@ -13,7 +13,7 @@ app = Flask(__name__)
 # 越前面優先權越高
 SearchKey1 = '抽抽'
 SearchKey2 = 'qq'
-SearchKey3 = 'GG'
+SearchKey3 = '四爺'
 SearchKey4 = 'QQ'
 SearchKey5 = 'D哥'
 SearchKey6 = '吃啥'
@@ -31,7 +31,7 @@ String_Search_Key=[
 Reply_Message = {
   SearchKey1:'randomIMG',
   SearchKey2:'幫你擦眼淚',
-  SearchKey3:'GG惹~~~',
+  SearchKey3:'四爺: 我缺女人!\n 麻煩小芬有空的話幫忙上圖',
   SearchKey4:'別哭了,需要衛生紙嗎',
   SearchKey5:'D哥是五股張震!!',
   SearchKey6:'RandomK6',
@@ -112,7 +112,7 @@ def process_textstring(msg,profilename):
     return ['text',keyresult]
   elif get_reply_msg == '求籤':
     keyresult = random.choices(fortune, weights=prob)[0]
-    return ['text',f'{profilename}\n占卜的結果為\n\n\n\n===>> {keyresult} <<===']
+    return ['text',f'Hi~{profilename}\n占卜的結果為\n\n\n===>> {keyresult} <<===']
   elif get_reply_msg == 'False':    
     #什麼都找不到
     return ['False',get_reply_msg]
