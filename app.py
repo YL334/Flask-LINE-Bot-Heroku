@@ -148,7 +148,7 @@ def callback():
 def handle_message(event):
         UserId = event.source.user_id
         profile = line_bot_api.get_profile(UserId)
-        checkMsg = process_textstring(event.message.text, profile)
+        checkMsg = process_textstring(event.message.text, profile.display_name)
         if checkMsg[0] == 'text' :
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=checkMsg[1]))
         elif checkMsg[0] == 'img' :
