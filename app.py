@@ -5,7 +5,7 @@ from flask import Flask, abort, request
 
 # https://github.com/line/line-bot-sdk-python
 from linebot import LineBotApi, WebhookHandler
-from linebot.exceptions import InvalidSignatureError
+from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
 
 app = Flask(__name__)
@@ -84,7 +84,7 @@ Random_img =[
 
 #抽籤用
 fortune = ['大吉', '吉', '末吉', '小凶', '凶', '大凶']
-prob = [3, 6, 5, 3, 2, 1]
+prob = [6, 10, 8, 5, 2, 1]
 
 
 # 處理message用
@@ -112,7 +112,8 @@ def process_textstring(msg):
     return ['text',keyresult]
   elif get_reply_msg == '求籤':
     keyresult = random.choices(fortune, weights=prob)[0]
-    return ['text',f'根據計算得到的結果為\n\n\n\n==> {keyresult} <==']
+    profile = line_bot_api.get_profile('<user_id>')
+    return ['text',f'{profile}\n占卜的結果為\n\n\n\n===>> {keyresult} <<===']
   elif get_reply_msg == 'False':    
     #什麼都找不到
     return ['False',get_reply_msg]
