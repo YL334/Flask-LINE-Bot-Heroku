@@ -10,6 +10,30 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSend
 
 app = Flask(__name__)
 
+Dino_Random =[
+  'Dino是五股張震🧑‍🦼','Dino好帥','每天都被自己帥醒','Dino是藍天大師'
+]
+
+Alex4_Random =[
+  '四~爺~~~~💕','四爺豪棒棒👍','四爺何時要請客'
+]
+
+StockMsg_Random=[
+  '一哥賺翻了',
+  '跟著王董買穩賺不賠~',
+  '本群常駐藍天大師與放空大師有問題都可以問他們喔!💕',
+  '🇹🇼Tawain No.1!!!🇹🇼',
+  '歐印啦!還想什麼~'
+]
+
+Fxx_Random=[
+  '幫你補個幹~',
+  '乾~~~',
+  '金派耶~',
+  '好兇喔',
+  '深呼吸喘口氣'
+]
+
 # 越前面優先權越高
 SearchKey1 = '抽抽'
 SearchKey2 = 'qq'
@@ -20,7 +44,7 @@ SearchKey6 = '吃啥'
 SearchKey7 = '乾'
 SearchKey8 = '股價'
 SearchKey9 = '抽籤'
-SearchKey10 = '運'
+SearchKey10 = '運勢'
 SearchKey11 = '吃什麼'
 
 # 記得要一起改
@@ -31,12 +55,12 @@ String_Search_Key=[
 Reply_Message = {
   SearchKey1:'randomIMG',
   SearchKey2:'幫你擦眼淚',
-  SearchKey3:'四爺: 我缺女人!\n 麻煩小芬有空的話幫忙上圖',
+  SearchKey3:random.choices(Alex4_Random)[0],
   SearchKey4:'別哭了,需要衛生紙嗎',
-  SearchKey5:'D哥是五股張震!!',
+  SearchKey5: random.choices(Dino_Random)[0],
   SearchKey6:'RandomK6',
-  SearchKey7:'金派耶~',
-  SearchKey8:'跟著王董買穩賺不賠~',
+  SearchKey7:random.choices(Fxx_Random)[0],
+  SearchKey8:random.choices(StockMsg_Random)[0],
   SearchKey9:'求籤',
   SearchKey10:'求籤',
   SearchKey11:'RandomK6'#吃啥專用key
@@ -83,9 +107,8 @@ Random_img =[
 ]
 
 #抽籤用
-fortune = ['大吉', '吉', '末吉', '小凶', '凶', '大凶']
-prob = [6, 10, 8, 5, 2, 1]
-
+fortune = ['大吉','中吉', '吉', '末吉', '小凶', '凶', '大凶']
+prob = [8, 11, 30, 15, 10, 5, 2]
 
 # 處理message用
 def process_textstring(msg,):
