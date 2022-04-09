@@ -19,10 +19,10 @@ Alex4_Random =[
 ]
 
 StockMsg_Random=[
-  '一哥賺翻了',
-  '跟著王董買穩賺不賠~',
-  '本群常駐藍天大師與放空大師有問題都可以問他們喔!💕',
-  '🇹🇼Tawain No.1!!!🇹🇼',
+  '買啊～哪次不買',
+  '我全都要～',
+  '多買一些分給大家啊🎁',
+  '我賣身也買不起～',
   '歐印啦!還想什麼~'
 ]
 
@@ -42,7 +42,7 @@ SearchKey4 = 'QQ'
 SearchKey5 = 'D哥'
 SearchKey6 = '吃啥'
 SearchKey7 = '乾'
-SearchKey8 = '股價'
+SearchKey8 = '買'
 SearchKey9 = '抽籤'
 SearchKey10 = '運勢'
 SearchKey11 = '吃什麼'
