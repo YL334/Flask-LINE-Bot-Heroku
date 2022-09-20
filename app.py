@@ -182,8 +182,8 @@ def handle_message(event):
         if checkMsg[0] == 'text' :
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=checkMsg[1]))
         elif checkMsg[0] == 'img' :
-            #piclinkk = getLink('SSIS-144')
-            #line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url=piclinkk,preview_image_url=piclinkk))
-            line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url=checkMsg[1],preview_image_url=checkMsg[1]))
+            piclinkk = getLink('SSIS-144')
+            line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url=piclinkk,preview_image_url=piclinkk))
+            #line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url=checkMsg[1],preview_image_url=checkMsg[1]))
 
 
