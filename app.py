@@ -58,9 +58,9 @@ String_Search_Key=[
 
 Reply_Message = {
   SearchKey1:'randomIMG',
-  SearchKey2:'幫你擦眼淚',
+  SearchKey2:'幫你擦眼淚(遞)',
   SearchKey3:random.choices(Alex4_Random)[0],
-  SearchKey4:'別哭了,需要衛生紙嗎',
+  SearchKey4:'別哭了啦,需要衛生紙嗎',
   SearchKey5: random.choices(Dino_Random)[0],
   SearchKey6:'RandomK6',
   SearchKey7:random.choices(Fxx_Random)[0],
