@@ -7,6 +7,7 @@ from flask import Flask, abort, request
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
+from getcover import getLink
 
 app = Flask(__name__)
 
@@ -179,6 +180,8 @@ def handle_message(event):
         if checkMsg[0] == 'text' :
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=checkMsg[1]))
         elif checkMsg[0] == 'img' :
-            line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url=checkMsg[1],preview_image_url=checkMsg[1]))
+            piclinkk = getLink('SSIS-144')
+            line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url=piclinkk,preview_image_url=piclinkk))
+            #line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url=checkMsg[1],preview_image_url=checkMsg[1]))
 
 
