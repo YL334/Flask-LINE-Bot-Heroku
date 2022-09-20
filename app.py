@@ -11,6 +11,7 @@ from getcover import getLink
 
 app = Flask(__name__)
 
+
 Dino_Random =[
   'Dino是五股張震🧑‍🦼','Dino好帥','每天都被自己帥醒','Dino是藍天大師'
 ]
