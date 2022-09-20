@@ -94,6 +94,7 @@ RandomK6 =[
   '吃泰式料理'
 ]
 
+
 # 隨機圖片用
 Random_img =[
   'https://cdn.clickme.net/gallery/fb0ff9d6499cb30ea015c72cee75fe50.jpg',
