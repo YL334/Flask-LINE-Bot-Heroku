@@ -42,7 +42,7 @@ Fxx_Random=[
 
 # 越前面優先權越高
 SearchKey1 = '抽抽'
-SearchKey2 = 'qq'
+SearchKey2 = '妹子'
 SearchKey3 = '四爺'
 SearchKey4 = 'QQ'
 SearchKey5 = 'D哥'
@@ -52,7 +52,7 @@ SearchKey8 = '買'
 SearchKey9 = '抽籤'
 SearchKey10 = '運勢'
 SearchKey11 = '吃什麼'
-SearchKey12 = '妹子'
+SearchKey12 = '正妹'
 
 # 記得要一起改
 String_Search_Key=[
@@ -61,7 +61,7 @@ String_Search_Key=[
 
 Reply_Message = {
   SearchKey1:'randomIMG',
-  SearchKey2:'幫你擦眼淚(遞)',
+  SearchKey2:'googimg',
   SearchKey3:random.choices(Alex4_Random)[0],
   SearchKey4:'別哭了啦,需要衛生紙嗎',
   SearchKey5: random.choices(Dino_Random)[0],
@@ -122,7 +122,7 @@ fortune = ['大吉','中吉', '吉', '末吉', '小凶', '凶', '大凶']
 prob = [8, 11, 30, 15, 10, 5, 2]
 
 # 處理message用
-def process_textstring(msg,):
+def process_textstring(msg):
   keyresult = 'False'
   #預設找不到keyword, 若有則會把keyword記錄下來
   #在收到的msg中尋找是否有符合keyword
@@ -144,7 +144,7 @@ def process_textstring(msg,):
   elif get_reply_msg.startswith('googimg'):  
     #google img
     q_string = {'tbm': 'isch', 'q': '正妹'}
-    url = f"https://www.google.com/search?{urllib.parse.urlencode(q_string)}/"
+    url = f'https://www.google.com/search?{urllib.parse.urlencode(q_string)}/'
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'}
     req = urllib.request.Request(url, headers = headers)
     conn = urllib.request.urlopen(req)
@@ -152,7 +152,7 @@ def process_textstring(msg,):
     img_list = []
     for match in re.finditer(pattern, str(conn.read())):
       img_list.append(match.group()[14:-1])
-      random_img_url = img_list[random.randint(0, len(img_list)+1)]
+    random_img_url = img_list[random.randint(0, len(img_list)+1)]
     #img_Link= google_isch('正妹')
     return ['img',random_img_url]
     #return ['text','GG']
