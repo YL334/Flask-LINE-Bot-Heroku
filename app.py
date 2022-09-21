@@ -99,22 +99,6 @@ RandomK6 =[
 ]
 
 
-def google_isch(fkeyword):
-  try:
-    q_string = {'tbm': 'isch', 'q': fkeyword}
-    url = f"https://www.google.com/search?{urllib.parse.urlencode(q_string)}/"
-    headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'}
-            
-    req = urllib.request.Request(url, headers = headers)
-    conn = urllib.request.urlopen(req)
-            
-    pattern = 'img data-src="\S*"'
-    img_list = []
-            
-    for match in re.finditer(pattern, str(conn.read())):
-      img_list.append(match.group()[14:-1])
-      random_img_url = img_list[random.randint(0, len(img_list)+1)]
-      return random_img_url
 
 
 # 隨機圖片用
@@ -159,9 +143,19 @@ def process_textstring(msg,):
     return ['img',img_Link]
   elif get_reply_msg.startswith('googimg'):  
     #google img
+    q_string = {'tbm': 'isch', 'q': '正妹'}
+    url = f"https://www.google.com/search?{urllib.parse.urlencode(q_string)}/"
+    headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'}
+    req = urllib.request.Request(url, headers = headers)
+    conn = urllib.request.urlopen(req)
+    pattern = 'img data-src="\S*"'
+    img_list = []
+    for match in re.finditer(pattern, str(conn.read())):
+      img_list.append(match.group()[14:-1])
+      random_img_url = img_list[random.randint(0, len(img_list)+1)]
     #img_Link= google_isch('正妹')
-    #return ['img',img_Link]
-    return ['text','GG']
+    return ['img',random_img_url]
+    #return ['text','GG']
   elif get_reply_msg == 'RandomK6':
     keyresult = random.choice(RandomK6)
     return ['text',keyresult]
