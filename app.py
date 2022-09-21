@@ -159,8 +159,9 @@ def process_textstring(msg,):
     return ['img',img_Link]
   elif get_reply_msg.startswith('googimg'):  
     #google img
-    img_Link= google_isch('正妹')
-    return ['img',img_Link]
+    #img_Link= google_isch('正妹')
+    #return ['img',img_Link]
+    return ['text','GG']
   elif get_reply_msg == 'RandomK6':
     keyresult = random.choice(RandomK6)
     return ['text',keyresult]
