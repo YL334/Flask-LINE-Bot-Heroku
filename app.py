@@ -70,7 +70,7 @@ Reply_Message = {
   SearchKey8:random.choices(StockMsg_Random)[0],
   SearchKey9:'求籤',
   SearchKey10:'求籤',
-  SearchKey11:'RandomK6'#吃啥專用key,
+  SearchKey11:'RandomK6', #吃啥專用key,
   SearchKey12:'googimg'
 }
 
