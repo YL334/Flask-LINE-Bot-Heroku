@@ -7,7 +7,9 @@ from flask import Flask, abort, request
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
-
+import urllib
+import re
+import random
 
 app = Flask(__name__)
 
@@ -50,10 +52,11 @@ SearchKey8 = '買'
 SearchKey9 = '抽籤'
 SearchKey10 = '運勢'
 SearchKey11 = '吃什麼'
+SearchKey12 = '妹子'
 
 # 記得要一起改
 String_Search_Key=[
-  SearchKey1,SearchKey2,SearchKey3,SearchKey4,SearchKey5,SearchKey6,SearchKey7,SearchKey8,SearchKey9,SearchKey10,SearchKey11
+  SearchKey1,SearchKey2,SearchKey3,SearchKey4,SearchKey5,SearchKey6,SearchKey7,SearchKey8,SearchKey9,SearchKey10,SearchKey11,SearchKey12
 ]
 
 Reply_Message = {
@@ -67,7 +70,8 @@ Reply_Message = {
   SearchKey8:random.choices(StockMsg_Random)[0],
   SearchKey9:'求籤',
   SearchKey10:'求籤',
-  SearchKey11:'RandomK6'#吃啥專用key
+  SearchKey11:'RandomK6'#吃啥專用key,
+  SearchKey12:'googimg'
 }
 
 RandomK6 =[
@@ -93,6 +97,24 @@ RandomK6 =[
   '吃便當',
   '吃泰式料理'
 ]
+
+
+def google_isch(fkeyword):
+  try:
+    q_string = {'tbm': 'isch', 'q': fkeyword}
+    url = f"https://www.google.com/search?{urllib.parse.urlencode(q_string)}/"
+    headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'}
+            
+    req = urllib.request.Request(url, headers = headers)
+    conn = urllib.request.urlopen(req)
+            
+    pattern = 'img data-src="\S*"'
+    img_list = []
+            
+    for match in re.finditer(pattern, str(conn.read())):
+      img_list.append(match.group()[14:-1])
+      random_img_url = img_list[random.randint(0, len(img_list)+1)]
+      return random_img_url
 
 
 # 隨機圖片用
@@ -134,6 +156,10 @@ def process_textstring(msg,):
   if get_reply_msg.startswith('randomIMG'):  
     #隨機圖片
     img_Link= random.choice(Random_img)
+    return ['img',img_Link]
+  if get_reply_msg.startswith('googimg'):  
+    #google img
+    img_Link= google_isch('正妹')
     return ['img',img_Link]
   elif get_reply_msg == 'RandomK6':
     keyresult = random.choice(RandomK6)
