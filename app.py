@@ -157,7 +157,7 @@ def process_textstring(msg,):
     #隨機圖片
     img_Link= random.choice(Random_img)
     return ['img',img_Link]
-  if get_reply_msg.startswith('googimg'):  
+  elif get_reply_msg.startswith('googimg'):  
     #google img
     img_Link= google_isch('正妹')
     return ['img',img_Link]
